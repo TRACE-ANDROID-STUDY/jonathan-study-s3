@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="316dp"
+        android:layout_height="408dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="109dp"
+            android:layout_marginTop="0dp"
+            app:srcCompat="@drawable/jstudy" />
+
+        <EditText
+            android:id="@+id/idText"
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:ems="10"
+            android:hint="@string/login_id"
+            android:inputType="textPersonName"
+            android:textColorHighlight="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/pwText"
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/login_pw"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="250dp"
+            android:layout_height="45dp"
+            android:text="@string/login_btn" />
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="29dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/registerQText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="@string/login_register_q" />
+
+            <TextView
+                android:id="@+id/registerText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/login_register" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
