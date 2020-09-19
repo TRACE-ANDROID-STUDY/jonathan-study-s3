@@ -37,28 +37,34 @@ class LoginActivity: AppCompatActivity(){
                             if(response.body()!!.success){
                                 Toast.makeText(this@LoginActivity, response.body()!!.message, Toast.LENGTH_SHORT).show()
                                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                                //intent.putExtra("data", response.body()!!.data)
+                                intent.putExtra("response", response.toString()+"\n"+response.body()!!.toString())
                                 startActivity(intent)
                                 finish()
                             }
                             else {
-                                Toast.makeText(this@LoginActivity, "test!", Toast.LENGTH_LONG)
+                                Toast.makeText(this@LoginActivity, "Invalid id/password.", Toast.LENGTH_LONG)
                                     .show()
-
-                                Log.d("testlog", "${response.raw()}")
-                                Log.d("testlog", "${response.errorBody()}")
                             }
                         }
-                        else
-                            Toast.makeText(this@LoginActivity, "Invalid id/password.", Toast.LENGTH_SHORT).show()
+                        else {
+                            Toast.makeText(
+                                this@LoginActivity,
+                                "Failed with response code: ${response.code()}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
 
                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                        Toast.makeText(this@LoginActivity, "Something went wrong :(", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@LoginActivity, "onFailure :(", Toast.LENGTH_SHORT).show()
                     }
 
                 })
             }
+        }
+
+        registerText.setOnClickListener{
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 }
